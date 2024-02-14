@@ -1,0 +1,16 @@
+﻿<Window x:Class="wpfKepek.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:wpfKepek"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Button x:Name="elozo" Content="Elozo" HorizontalAlignment="Left" Margin="24,28,0,0" VerticalAlignment="Top" Click="elozo_click"/>
+        <Button x:Name="kovetkezo" Content="Kovetkezo" HorizontalAlignment="Left" Margin="79,28,0,0" VerticalAlignment="Top" Click="kovetkezo_click"/>
+        <Button x:Name="automatikus" Content="Automatikus" HorizontalAlignment="Left" Margin="159,28,0,0" VerticalAlignment="Top" Click="automatikus_click"/>
+        <Image x:Name="TheImages" HorizontalAlignment="Left" Height="329" Margin="40,68,0,0" VerticalAlignment="Top" Width="729"/>
+
+    </Grid>
+</Window>
