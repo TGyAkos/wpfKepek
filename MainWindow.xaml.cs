@@ -1,5 +1,7 @@
 ﻿using System.IO;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Threading;
 
@@ -29,6 +31,10 @@ namespace wpfKepek
             }
 
             TheImages.Source = kepek.First();
+            FileName.Text = Path.GetFileName(kepek[SelectedIndex].UriSource.ToString());
+
+            progressBar.Maximum = kepek.Count;
+            progressBar.Minimum = 0;
         }
 
         private void elozo_click(object sender, RoutedEventArgs e)
@@ -43,6 +49,8 @@ namespace wpfKepek
             }
 
             TheImages.Source = kepek[SelectedIndex];
+            FileName.Text = Path.GetFileName(kepek[SelectedIndex].UriSource.ToString());
+            progressBar.Value = SelectedIndex;
         }
 
         private void kovetkezo_click(object sender, RoutedEventArgs e)
@@ -57,6 +65,8 @@ namespace wpfKepek
             }
 
             TheImages.Source = kepek[SelectedIndex];
+            FileName.Text = Path.GetFileName(kepek[SelectedIndex].UriSource.ToString());
+            progressBar.Value = SelectedIndex;
 
         }
 
@@ -67,15 +77,23 @@ namespace wpfKepek
                 elozo.IsEnabled = false;
                 kovetkezo.IsEnabled = false;
                 timer.Interval = TimeSpan.FromSeconds(2);
+                DoubleAnimation doubleanimation = new DoubleAnimation(100.0, timer.Interval);
                 timer.Tick += (s, e) =>
                 {
+                    progressBarSeconds.BeginAnimation(ProgressBar.ValueProperty, null);
+                    progressBarSeconds.Value = 0;
+                    progressBarSeconds.BeginAnimation(ProgressBar.ValueProperty, doubleanimation);
                     kovetkezo_click(null, null);
                 };
+
                 timer.Start();
+                progressBarSeconds.BeginAnimation(ProgressBar.ValueProperty, doubleanimation);
             }
             else
             {
                 timer.Stop();
+                progressBarSeconds.BeginAnimation(ProgressBar.ValueProperty, null);
+                progressBarSeconds.Value = 0;
                 elozo.IsEnabled = true;
                 kovetkezo.IsEnabled = true;
             }
@@ -89,5 +107,7 @@ namespace wpfKepek
             pic.UriSource = uri;
             return pic;
         }
+
+
     }
 }

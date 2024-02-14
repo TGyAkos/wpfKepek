@@ -11,6 +11,11 @@
         <Button x:Name="kovetkezo" Content="Kovetkezo" HorizontalAlignment="Left" Margin="79,28,0,0" VerticalAlignment="Top" Click="kovetkezo_click"/>
         <Button x:Name="automatikus" Content="Automatikus" HorizontalAlignment="Left" Margin="159,28,0,0" VerticalAlignment="Top" Click="automatikus_click"/>
         <Image x:Name="TheImages" HorizontalAlignment="Left" Height="329" Margin="40,68,0,0" VerticalAlignment="Top" Width="729"/>
+        <ProgressBar x:Name="progressBar" HorizontalAlignment="Left" Height="15" Margin="328,23,0,0" VerticalAlignment="Top" Width="376"/>
+        <ProgressBar x:Name="progressBarSeconds" HorizontalAlignment="Left" Height="15" Margin="328,46,0,0" VerticalAlignment="Top" Width="376">
+            
+        </ProgressBar>
+        <TextBlock x:Name="FileName" HorizontalAlignment="Left" Margin="256,30,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>
